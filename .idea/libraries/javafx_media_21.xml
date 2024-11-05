@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javafx-media-21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../javafx-media-21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/../../../javafx-media-21.jar!/" recursive="false" />
+  </library>
+</component>
