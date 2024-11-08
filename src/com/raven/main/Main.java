@@ -243,7 +243,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_titleMousePressed
 
     private void cmdCloseActionPerformed(java.awt.event.ActionEvent evt) throws SocketException {//GEN-FIRST:event_cmdCloseActionPerformed
-        utilities.sendBroadcastMessage(new PeerInfo(peerAddress, peerName, peerPort), new DatagramSocket(), MessageType.DISCONNECT);
+        utilities.sendMulticastMessage(new PeerInfo(peerAddress, peerName, peerPort), new DatagramSocket(), MessageType.DISCONNECT);
         System.exit(0);
     }//GEN-LAST:event_cmdCloseActionPerformed
 

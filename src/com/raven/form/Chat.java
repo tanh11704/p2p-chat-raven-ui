@@ -79,7 +79,7 @@ public class Chat extends JPanel {
     private JPanel createUserPanel(PeerInfo peerInfo) {
         JPanel userPanel = new JPanel(new MigLayout("fillx", "0[fill]0", "0[]0[100%, fill]0[shrink 0]0"));
 
-        Chat_Title chatTitle = new Chat_Title(peerInfo.getName());
+        Chat_Title chatTitle = new Chat_Title(peerInfo);
         Chat_Body chatBody = new Chat_Body();
         Chat_Bottom chatBottom = new Chat_Bottom(peerInfo, chatBody);
 

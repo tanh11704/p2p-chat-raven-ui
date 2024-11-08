@@ -44,7 +44,7 @@ public class Home extends javax.swing.JLayeredPane implements EventMenuLeft {
 
         new Thread(new PeerListener(MyPeer.getInstance().getPeerPort(), peerList, menuLeft, chatPanel)).start();
         new Thread(new ConnectReceive(menuLeft, chatPanel, peerList, peerName, peerAddress, peerPort)).start();
-        utilities.sendBroadcastMessage(new PeerInfo(peerAddress, peerName, peerPort), socket, MessageType.CONNECT);
+        utilities.sendMulticastMessage(new PeerInfo(peerAddress, peerName, peerPort), socket, MessageType.CONNECT);
     }
 
     private void init() {

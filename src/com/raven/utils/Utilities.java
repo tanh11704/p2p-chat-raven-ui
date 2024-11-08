@@ -47,7 +47,7 @@ public class Utilities {
         return inetAddress instanceof Inet4Address && !inetAddress.isLoopbackAddress();
     }
 
-    public void sendBroadcastMessage(PeerInfo peerInfo, DatagramSocket socket, MessageType type) {
+    public void sendMulticastMessage(PeerInfo peerInfo, DatagramSocket socket, MessageType type) {
         JSONObject message = new JSONObject();
         message.put("type", type);
         message.put("name", peerInfo.getName());
@@ -56,9 +56,9 @@ public class Utilities {
 
         try {
             byte[] buffer = message.toString().getBytes();
-            InetAddress broadcastAddress = InetAddress.getByName("255.255.255.255");
+            InetAddress multicastGroup = InetAddress.getByName("230.0.0.1");
 
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, broadcastAddress, 9999);
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, multicastGroup, 9999);
             socket.send(packet);
         } catch (IOException e) {
         }
