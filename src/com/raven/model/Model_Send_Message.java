@@ -58,6 +58,11 @@ public class Model_Send_Message {
             json.put("type", type.toString());
             json.put("sender", sender);
             json.put("content", content);
+
+            if (file != null) {
+                json.put("fileSize", file.getFileSize());
+            }
+
             return json;
         } catch (JSONException e) {
             return null;

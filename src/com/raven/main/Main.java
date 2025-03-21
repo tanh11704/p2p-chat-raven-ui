@@ -31,8 +31,8 @@ public class Main extends javax.swing.JFrame {
 
     public Main(String name) throws SocketException {
         this.peerName = name;
-//        this.peerAddress = utilities.getIpAddress();
-        this.peerAddress = "localhost";
+        this.peerAddress = utilities.getIpAddress();
+//        this.peerAddress = "localhost";
         this.peerPort = utilities.findAvailablePort();
         MyPeer.getInstance().setPeerName(peerName);
         MyPeer.getInstance().setPeerAddress(peerAddress);

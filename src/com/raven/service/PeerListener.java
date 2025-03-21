@@ -28,10 +28,17 @@ public class PeerListener implements Runnable {
     public void run() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             while (true) {
-                Socket peerSocket = serverSocket.accept();
-                new Thread(new PeerMessageHandler(peerList, peerSocket, menuLeft, chat)).start();
+                try {
+                    Socket peerSocket = serverSocket.accept();
+                    System.out.println("New connection from: " + peerSocket.getInetAddress().getHostAddress());
+                    new Thread(new PeerMessageHandler(peerList, peerSocket, menuLeft, chat)).start();
+                } catch (IOException e) {
+                    System.err.println("Error accepting connection: " + e.getMessage());
+                    e.printStackTrace();
+                }
             }
         } catch (IOException e) {
+            System.err.println("Error starting server on port " + port + ": " + e.getMessage());
             e.printStackTrace();
         }
     }
